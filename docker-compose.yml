@@ -29,6 +29,8 @@ services:
       PGADMIN_LISTEN_PORT: 80
     ports: 
       - "3201:80"
+    logging:
+      driver: none
   client-app:
     container_name: client-app
     build:
