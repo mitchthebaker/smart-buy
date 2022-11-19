@@ -8,8 +8,9 @@ const App = () => {
   
   useEffect(() => {
     // Send a request to api-gateway, whose URI is specified in .env
-    axios.get(`${process.env.REACT_APP_API_GATEWAY_URI}/messages`).then(result => {
+    axios.get(`${process.env.REACT_APP_API_GATEWAY_URI}/api/messages`).then(result => {
       const data = result.data;
+      console.log(data);
       setMessages(data);
     })
     .catch(err => {
@@ -20,7 +21,7 @@ const App = () => {
   const handleChange = (e) => setMessage(e.target.value);
 
   const handleSubmit = () => {
-    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/messages`, {
+    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/api/messages`, {
       message: message
     }).then(result => {
       // do something with the response sent from server
