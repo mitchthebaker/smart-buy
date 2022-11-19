@@ -10,7 +10,6 @@ const accessEnv = require("@root/helpers/accessEnv");
 const api = require("@root/routes/api");
 
 const { websocketConnection } = require("@root/ws/socket");
-//const Websockets = require("@root/ws/socket");
 
 const PORT = parseInt(accessEnv("PORT", "3001"), 10); 
 
@@ -28,7 +27,6 @@ const startServer = () => {
   let io = socketServer(server);
   websocketConnection(io);
   app.set('socketio', io);
-  //Websockets.connection(io);
 
   // setup api routes 
   app.use("/api", api);
