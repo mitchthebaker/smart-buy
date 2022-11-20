@@ -10,7 +10,7 @@ const App = () => {
   const handleIntervalChange = (e) => setInterval(e.target.value);
 
   const handleSubmit = () => {
-    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/api/poll`, {
+    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/api/pollEma`, {
       ticker: ticker,
       interval: interval
     }).then(result => {

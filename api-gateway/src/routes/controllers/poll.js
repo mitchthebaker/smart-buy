@@ -4,7 +4,7 @@ const accessEnv = require("@root/helpers/accessEnv");
 const TD_URI = accessEnv("TD_URI", "https://api.twelvedata.com");
 const TD_API_KEY = accessEnv("TD_API_KEY", null);
 
-const postPoll = async (req, res, next) => {
+const postPollEma = async (req, res, next) => {
   if(!req.body.ticker) return next(new Error("Invalid body, missing ticker parameter in req.body"));
   if(!req.body.interval) return next(new Error("Invalid body, missing interval parameter in req.body"));
 
@@ -16,8 +16,8 @@ const postPoll = async (req, res, next) => {
     return res.json(result.data);
   }
   catch(err) {
-    console.error(`Error when sending POST to /poll, ${err}`);
+    console.error(`Error when sending POST to /pollEma, ${err}`);
   }
 };
 
-module.exports = { postPoll };
+module.exports = { postPollEma };

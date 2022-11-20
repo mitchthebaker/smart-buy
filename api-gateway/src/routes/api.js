@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { getTest } = require("@root/routes/controllers/test");
 const { getMessages, postMessage } = require("@root/routes/controllers/messages");
-const { postPoll } = require("@root/routes/controllers/poll");
+const { postPollEma } = require("@root/routes/controllers/poll");
 
 // test routes
 router.get("/test", getTest);
@@ -13,6 +13,6 @@ router.get("/messages", getMessages);
 router.post("/messages", postMessage);
 
 // poll routes 
-router.post("/poll", postPoll);
+router.post("/pollEma", postPollEma);
 
 module.exports = router;
