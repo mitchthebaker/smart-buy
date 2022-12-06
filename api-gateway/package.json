@@ -21,6 +21,7 @@
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
     "module-alias": "^2.2.2",
+    "node-cron": "^3.0.2",
     "pg": "^8.8.0",
     "socket.io": "^4.5.3",
     "typeorm": "^0.3.10",
