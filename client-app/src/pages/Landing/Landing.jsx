@@ -1,7 +1,10 @@
+// components
+import CreateEmaForm from '../../components/CreateEmaForm';
+
 const Landing = () => {
   return (
     <section>
-      
+      <CreateEmaForm />
     </section>
   );
 };
