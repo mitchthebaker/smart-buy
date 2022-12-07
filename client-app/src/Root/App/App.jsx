@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import './App.css';
 
 const App = () => {
   const [ticker, setTicker] = useState("");
@@ -31,6 +30,25 @@ const App = () => {
       });
   };
 
+  const handleSubmit = () => {
+    console.log(ticker, interval, timePeriod);
+    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/api/pollEma`, {
+      ticker: ticker,
+      interval: interval,
+      timePeriod: timePeriod
+    }).then(result => {
+      // do something with the response sent from server
+      const data = result.data;;
+      console.log(data);
+      
+      // without websockets you'll have to refresh the page 
+      // to see 'messages' update with the new message
+    })
+    .catch(err => {
+      console.error(`${err}`);
+    });
+  };
+
   const handleStopInterval = () => {
     axios.get(`${process.env.REACT_APP_API_GATEWAY_URI}/api/scheduler/stopInterval`)
       .then(result => {
@@ -47,7 +65,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <main>
       <div>
         <div>
           <label> Enter ticker </label>
@@ -68,7 +86,7 @@ const App = () => {
         <button onClick={handleStartInterval}> Start interval </button>
         <button onClick={handleStopInterval}> Stop interval </button>
       </div>
-    </div>
+    </main>
   );
 };
 
@@ -85,22 +103,3 @@ export default App;
       console.error(`Error when getting messages, ${err}`);
     });
   }, []);*/
-
-  /*const handleSubmit = () => {
-    console.log(ticker, interval, timePeriod);
-    axios.post(`${process.env.REACT_APP_API_GATEWAY_URI}/api/pollEma`, {
-      ticker: ticker,
-      interval: interval,
-      timePeriod: timePeriod
-    }).then(result => {
-      // do something with the response sent from server
-      const data = result.data;;
-      console.log(data);
-      
-      // without websockets you'll have to refresh the page 
-      // to see 'messages' update with the new message
-    })
-    .catch(err => {
-      console.error(`${err}`);
-    });
-  };*/

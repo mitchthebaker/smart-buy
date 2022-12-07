@@ -1,4 +1,4 @@
-import { SocketContext, socket } from '../../context/ws/socket';
+import { SocketContext, socket } from '../contexts/ws/socket';
 import App from './App';
 
 const Root = () => {
