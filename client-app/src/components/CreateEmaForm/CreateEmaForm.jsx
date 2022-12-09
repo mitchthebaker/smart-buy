@@ -50,7 +50,6 @@ const CreateEmaForm = () => {
       interval: values.interval,
       timePeriod: values.timePeriod
     };
-    console.log(parameters);
 
     // if any fields are empty, display an error 
     const emptyFields = Object.keys(parameters).some(field => !values[field]);
