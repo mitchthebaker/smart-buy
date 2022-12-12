@@ -5,6 +5,7 @@ import StandardLayout from '../../layout/StandardLayout';
 
 // pages
 import Landing from '../../pages/Landing';
+import Dashboard from '../../pages/Dashboard';
 import NoMatch from '../../pages/NoMatch';
 
 const routes = [
@@ -14,12 +15,19 @@ const routes = [
     page: Landing
   },
   {
+    path: '/dashboard',
+    layout: StandardLayout,
+    page: Dashboard
+  },
+  {
     path: '*',
     layout: StandardLayout,
     page: NoMatch
   }
 ];
 
+// Routing config 
+// Within each route a layout contains a page, i.e. Landing, Dashboard, etc. 
 const App = () => {
   return (
     <Router>

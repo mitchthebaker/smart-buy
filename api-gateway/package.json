@@ -24,7 +24,6 @@
     "node-cron": "^3.0.2",
     "pg": "^8.8.0",
     "socket.io": "^4.5.3",
-    "typeorm": "^0.3.10",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

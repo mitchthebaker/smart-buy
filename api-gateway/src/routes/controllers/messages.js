@@ -19,7 +19,6 @@ const postMessage = async (req, res, next) => {
   if(!req.body.message) return next(new Error("Invalid body, missing message parameter in req.body"));
 
   try {
-    let io = req.app.get("socketio");
     const newMessage = {
       id: generateUUID(),
       message: req.body.message
@@ -29,11 +28,12 @@ const postMessage = async (req, res, next) => {
       INSERT INTO messages(id, message) VALUES($1, $2) RETURNING *
     `, [newMessage.id, newMessage.message]);
 
-    //io.emit("postMessage", result.rows);
+    let io = req.app.get("socketio");
     postMessageHandler(io, {
       type: "postMessage",
       payload: result.rows
     });
+    //io.emit("postMessage", result.rows);
     
     return res.json(result.rows[0]);
   }
