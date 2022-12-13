@@ -12,10 +12,47 @@ const getCards = async (req, res, next) => {
       FROM cards
     `);
 
-    return res.json(cards.rows);
+    const payload = [];
+
+    for(let i = 0; i < cards.rows.length; i++) {
+      const alerts = await axios.get(`${APP_URI}/api/timeline/cards/${cards.rows[i].card_id}/alerts`);
+      payload.push({
+        card_id: cards.rows[i].card_id,
+        timeline_id: cards.rows[i].timeline_id,
+        created_at: cards.rows[i].created_at,
+        alerts: alerts.data
+      });
+    }
+    
+    return res.json(payload);
   }
   catch(err) {
     console.error(`Error when sending GET to /cards, ${err}`);
+  }
+};
+
+const getCardById = async (req, res, next) => {
+  try {
+    if(!req.params.id) return next(new Error(`Invalid url params, missing req.params.id`));
+
+    const card = await pool.query(`
+      SELECT card_id, timeline_id, created_at
+      FROM cards
+      WHERE card_id = $1
+    `, [req.params.id]);
+
+    const alerts = await axios.get(`${APP_URI}/api/timeline/cards/${card.rows[0].card_id}/alerts`);
+    const payload = {
+      card_id: card.rows[0].card_id,
+      timeline_id: card.rows[0].timeline_id,
+      created_at: card.rows[0].created_at,
+      alerts: alerts.data
+    };
+
+    return res.json(payload);
+  }
+  catch(err) {
+    console.error(`Error when sending GET to /cards/:id`);
   }
 };
 
@@ -29,37 +66,46 @@ const getCardsByTimelineId = async (req, res, next) => {
         WHERE timeline_id = $1
       `, [req.params.id]);
 
-    return res.json(cards.rows);
+    const payload = [];
+
+    for(let i = 0; i < cards.rows.length; i++) {
+      const alerts = await axios.get(`${APP_URI}/api/timeline/cards/${cards.rows[i].card_id}/alerts`);
+      payload.push({
+        card_id: cards.rows[i].card_id,
+        timeline_id: cards.rows[i].timeline_id,
+        created_at: cards.rows[i].created_at,
+        alerts: alerts.data
+      });
+    }
+    
+    return res.json(payload);
   }
   catch(err) {
     console.error(`Error when sending GET to /timeline/:id/cards, ${err}`);
   }
 };
 
-const postCards = async (req, res, next) => {
+const postCard = async (req, res, next) => {
   try {
-    const timeline = await axios.get(`${APP_URI}/api/timeline`);
-    /*const result = await axios.post(`${APP_URI}/api/pollEma`, {
-      ticker: 'SPX',
-      interval: '5min',
-    });*/
+    if(!req.body.timeline_id) return next(new Error(`Invalid req.body, missing timeline_id`));
+
+    const { timeline_id } = req.body;
 
     const new_card = {
       id: generateUUID(),
-      timeline_id: timeline.data.timeline_id,
+      timeline_id: timeline_id,
     };
 
-    console.log(new_card);
-    const result = await pool.query(`
+    const card = await pool.query(`
       INSERT INTO cards(card_id, timeline_id)
       VALUES($1, $2) RETURNING *
     `, [new_card.id, new_card.timeline_id]);
 
-    return res.json(result.rows[0]);
+    return res.json(card.rows[0]);
   }
   catch(err) {
-    console.error(`Error when sending POST to /timeline/card, ${err}`);
+    console.error(`Error when sending POST to /cards, ${err}`);
   }
 };
 
-module.exports = { getCards, getCardsByTimelineId, postCards };
+module.exports = { getCards, getCardById, getCardsByTimelineId, postCard };

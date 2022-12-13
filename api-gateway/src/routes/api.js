@@ -6,7 +6,8 @@ const { getMessages, postMessage } = require("@root/routes/controllers/messages"
 const { postPollEma } = require("@root/routes/controllers/poll");
 const { startIntervalScheduler, stopIntervalScheduler } = require("@root/routes/controllers/scheduler");
 const { getTimeline, getTimelineById, postTimeline } = require("@root/routes/controllers/timelines");
-const { getCards, getCardsByTimelineId, postCards } = require("@root/routes/controllers/cards");
+const { getCards, getCardById, getCardsByTimelineId, postCard } = require("@root/routes/controllers/cards");
+const { getAlerts, getAlertsByCardId, postAlert } = require("@root/routes/controllers/alerts");
 
 // test routes
 router.get("/test", getTest);
@@ -22,21 +23,20 @@ router.post("/pollEma", postPollEma);
 router.get("/scheduler/startInterval", startIntervalScheduler);
 router.get("/scheduler/stopInterval", stopIntervalScheduler);
 
-
-/**
- * should be doing something like /timeline/:id/cards 
- * to get all cards, then doing call for timeline isn't 
- * necessary. in postTimelineCard
- */
-
 // timeline routes 
 router.get("/timeline", getTimeline);
 router.get("/timeline/:id", getTimelineById);
 router.post("/timeline", postTimeline);
 
-// timeline card routes 
+// cards routes 
 router.get("/cards", getCards);
+router.get("/cards/:id", getCardById);
 router.get("/timeline/:id/cards", getCardsByTimelineId);
-router.post("/cards", postCards);
+router.post("/cards", postCard);
+
+// alerts routes 
+router.get("/alerts", getAlerts);
+router.get("/timeline/cards/:id/alerts", getAlertsByCardId);
+router.post("/alerts", postAlert);
 
 module.exports = router;

@@ -14,8 +14,8 @@ const postPollEma = async (req, res, next) => {
       getEma(ticker, interval, 63)
     ]);
     return res.status(200).json({
-      ema13: result[0].data,
-      ema63: result[1].data
+      ema13: result[0].data.values[0].ema,
+      ema63: result[1].data.values[0].ema
     });
   }
   catch(err) {
