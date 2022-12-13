@@ -1,9 +1,9 @@
-import Cards from '../../components/Cards';
+import Timeline from '../../components/Timeline';
 
 const Dashboard = () => {
   return (
     <section>
-        <Cards />
+        <Timeline />
     </section>
   );
 };

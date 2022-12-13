@@ -14,6 +14,21 @@ const getTimelineCards = async (req, res, next) => {
   return res.json(result.rows);
 };
 
+const getTimelineCardsById = async (req, res, next) => {
+  try {
+    const result = await pool.query(`
+    SELECT timeline_card_id, timeline_id, ema13, ema63
+    FROM timeline_cards
+    WHERE timeline_id = $1
+  `, [req.params.id]);
+
+  return res.json(result.rows);
+  }
+  catch(err) {
+    console.error(`Error when sending GET to /timeline/:id/card, ${err}`);
+  }
+};
+
 const postTimelineCard = async (req, res, next) => {
   try {
     const timeline = await axios.get(`${APP_URI}/api/timeline`);
@@ -43,4 +58,4 @@ const postTimelineCard = async (req, res, next) => {
   }
 };
 
-module.exports = { getTimelineCards, postTimelineCard };
+module.exports = { getTimelineCards, getTimelineCardsById, postTimelineCard };

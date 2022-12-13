@@ -1,13 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux';
-import selectCards from '../../store/cardsSlice';
+//import { useSelector, useDispatch } from 'react-redux';
+//import selectCards from '../../store/cardsSlice';
 
-const Cards = () => {
-  const cards = useSelector(selectCards);
+const Cards = ({ cards }) => {
+  //const cards = useSelector(selectCards);
 
   return (
     <section>
-      {cards.map((card) => (
-        <span> {card} </span>
+      {cards.map(({timeline_card_id, ema13, ema63}) => (
+        <span key={timeline_card_id}> {ema13} {ema63} </span>
       ))}
     </section>
   );
