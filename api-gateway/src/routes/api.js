@@ -5,8 +5,8 @@ const { getTest } = require("@root/routes/controllers/test");
 const { getMessages, postMessage } = require("@root/routes/controllers/messages");
 const { postPollEma } = require("@root/routes/controllers/poll");
 const { startIntervalScheduler, stopIntervalScheduler } = require("@root/routes/controllers/scheduler");
-const { getTimeline, postTimeline } = require("@root/routes/controllers/timelines");
-const { getTimelineCards, getTimelineCardsById, postTimelineCard } = require("@root/routes/controllers/timelineCards");
+const { getTimeline, getTimelineById, postTimeline } = require("@root/routes/controllers/timelines");
+const { getCards, getCardsByTimelineId, postCards } = require("@root/routes/controllers/cards");
 
 // test routes
 router.get("/test", getTest);
@@ -31,11 +31,12 @@ router.get("/scheduler/stopInterval", stopIntervalScheduler);
 
 // timeline routes 
 router.get("/timeline", getTimeline);
+router.get("/timeline/:id", getTimelineById);
 router.post("/timeline", postTimeline);
 
 // timeline card routes 
-router.get("/timeline/card", getTimelineCards);
-router.get("/timeline/:id/card", getTimelineCardsById);
-router.post("/timeline/card", postTimelineCard);
+router.get("/cards", getCards);
+router.get("/timeline/:id/cards", getCardsByTimelineId);
+router.post("/cards", postCards);
 
 module.exports = router;
