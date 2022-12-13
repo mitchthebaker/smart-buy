@@ -13,14 +13,13 @@ const getTimeline = async (req, res, next) => {
       FROM timelines
       WHERE created_at > now() - interval '24 hours'
     `);
-
+    
     const cards = await axios.get(`${APP_URI}/api/timeline/${timeline.rows[0].timeline_id}/card`);
-
     const payload = {
       timeline_id: timeline.rows[0].timeline_id,
+      created_at: timeline.rows[0].created_at,
       cards: cards.data
     };
-
     return res.json(payload);
   }
   catch(err) {

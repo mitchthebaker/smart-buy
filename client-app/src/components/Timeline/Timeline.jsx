@@ -1,19 +1,32 @@
 import Cards from '../Cards';
 import Spinner from 'react-spinkit';
 import { useGetTimelineQuery } from '../../store/services/timelineApi';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { convertToDate, convertToTime } from '../../helpers';
 
 const Timeline = () => {
-  const { data, error, isLoading } = useGetTimelineQuery();
+  const [loaded, setLoaded] = useState(false);
+  const { data, err } = useGetTimelineQuery();
 
-  if(isLoading) {
-    return <Spinner name='folding-cube' />
-  }
-  if(error) {
-    return <span> An error occurred </span>
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
+  }, []);
 
   return (
-    <Cards cards={data.cards} />
+    <section>
+      { !loaded ? (
+          <Spinner name='folding-cube' />
+        ) : (
+          <>
+            <span> Today: { convertToDate(data.created_at) } { convertToTime(data.created_at) } </span>
+            <Cards cards={data.cards} />
+          </>
+        )}
+      { err && <span> An error occurred </span> }
+    </section>
   );
 };
 
