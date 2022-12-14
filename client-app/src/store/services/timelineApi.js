@@ -6,8 +6,11 @@ export const timelineApi = createApi({
   endpoints: builder => ({
     getTimeline: builder.query({
       query: () => '/timeline'
-    })
+    }),
+    getTimelineById: builder.query({
+      query: (id) => `/timeline/${id}`
+    }),
   }),
 });
 
-export const { useGetTimelineQuery } = timelineApi;
+export const { useGetTimelineQuery, useGetTimelineByIdQuery } = timelineApi;
