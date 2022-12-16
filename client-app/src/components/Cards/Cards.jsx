@@ -1,31 +1,24 @@
-//import { useSelector, useDispatch } from 'react-redux';
-//import selectCards from '../../store/cardsSlice';
 import Card from './Card';
 
 // sass 
 import '../../sass/components/_cards.scss';
 
 const Cards = ({ metadata }) => {
-  //const cards = useSelector(selectCards);
-  const {
-    ticker,
-    interval,
-    date,
-    start_time,
-    start_price,
-    end_price,
-    bsp,
-    cards
-  } = metadata;
-
   return (
     <section className='cards'>
-      {cards.map(({ card_id, alerts}) => (
+      {metadata.cards.map(({ card_id, alerts}) => (
         <Card 
           key={card_id} 
-          ticker={ticker}
-          interval={interval}
-          alerts={alerts}
+          metadata={{
+            ticker: metadata.ticker,
+            interval: metadata.interval,
+            date: metadata.date, 
+            start_time: metadata.start_time,
+            start_price: metadata.start_price,
+            end_price: metadata.end_price,
+            bsp: metadata.bsp,
+            alerts: alerts
+          }}
         />
       ))}
     </section>

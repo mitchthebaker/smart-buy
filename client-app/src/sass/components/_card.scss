@@ -1,0 +1,60 @@
+@import '../abstracts/mixins';
+
+.card-wrapper {
+  @include flex(column, center, center, nowrap);
+
+  // may need to make .card grid, so i can be specific 
+  // with img, ticker/interval/date/etc., alerts
+  & .card {
+    width: 100%;
+    @include flex(column, center, center, nowrap);
+    border: 2px solid #000000;
+
+    & .logo {
+      width: 7rem;
+      height: auto;
+      object-fit: contain;
+    }
+
+    & .description {
+      display: grid;
+      grid-template-columns: [col1] 50% [col2] 50% [end];
+      grid-template-rows: [row1] auto [row2] auto [row3] auto [end];
+
+      & .ticker {
+        grid-column-start: col1;
+        grid-column-end: col2;
+        grid-row-start: row1;
+        grid-row-end: row2;
+      }
+
+      & .date {
+        grid-column-start: col2;
+        grid-column-end: end;
+        grid-row-start: row1;
+        grid-row-end: row2;
+      }
+
+      & .interval {
+        grid-column-start: col1;
+        grid-column-end: col2;
+        grid-row-start: row2;
+        grid-row-end: row3;
+      }
+
+      & .start-time {
+        grid-column-start: col2;
+        grid-column-end: end;
+        grid-row-start: row2;
+        grid-row-end: row3;
+      }
+
+      & .start-values {
+        grid-column-start: col1;
+        grid-column-end: col2;
+        grid-row-start: row3;
+        grid-row-end: end;
+      }
+    }
+  }
+}
