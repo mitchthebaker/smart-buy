@@ -1,14 +1,18 @@
 // abstracts
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 // base 
 @import 'base/typography';
 
 // components 
+@import 'components/timeline';
 
 // layout 
 @import 'layout/grid';
 @import 'layout/forms';
+@import 'layout/standardlayout';
 
 // pages 
-@import 'pages/landing'
+@import 'pages/landing';
+@import 'pages/dashboard';

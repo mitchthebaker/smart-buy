@@ -1,3 +1,6 @@
+// sass 
+import '../../sass/layout/_standardlayout.scss';
+
 const StandardLayout = ({ children }) => {
   
   /**
@@ -11,7 +14,7 @@ const StandardLayout = ({ children }) => {
    * 
    */
   return (
-    <main>
+    <main className='standardlayout'>
       { children }
     </main>
   );

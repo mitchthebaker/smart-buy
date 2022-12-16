@@ -2,11 +2,24 @@
 //import selectCards from '../../store/cardsSlice';
 import Card from './Card';
 
-const Cards = ({ cards, ticker, interval }) => {
+// sass 
+import '../../sass/components/_cards.scss';
+
+const Cards = ({ metadata }) => {
   //const cards = useSelector(selectCards);
+  const {
+    ticker,
+    interval,
+    date,
+    start_time,
+    start_price,
+    end_price,
+    bsp,
+    cards
+  } = metadata;
 
   return (
-    <section>
+    <section className='cards'>
       {cards.map(({ card_id, alerts}) => (
         <Card 
           key={card_id} 

@@ -3,7 +3,11 @@ import Spinner from 'react-spinkit';
 import { useGetTimelineByIdQuery } from '../../store/services/timelineApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { convertToDate, convertToTime } from '../../helpers';
+//import { convertToDate, convertToTime } from '../../helpers';
+import { mockTimeline } from './mockTimeline';
+
+// sass 
+import '../../sass/components/_timeline.scss';
 
 const Timeline = () => {
   const [loaded, setLoaded] = useState(false);
@@ -16,14 +20,22 @@ const Timeline = () => {
   }, []);
 
   return (
-    <section>
+    <section className='timeline'>
       { !loaded ? (
           <Spinner name='folding-cube' />
         ) : (
-          <>
-            <span> Today: { convertToDate(data.created_at) } { convertToTime(data.created_at) } </span>
-            <Cards cards={data.cards} ticker={data.ticker} interval={data.interval} />
-          </>
+          <Cards 
+            metadata={{
+              ticker: mockTimeline.ticker,
+              interval: mockTimeline.interval,
+              date: mockTimeline.date,
+              start_time: mockTimeline.start_time,
+              start_price: mockTimeline.start_price,
+              end_price: mockTimeline.end_price,
+              bsp: mockTimeline.bsp,
+              cards: mockTimeline.cards
+            }}
+          />
         )}
       { err && <span> An error occurred </span> }
     </section>
