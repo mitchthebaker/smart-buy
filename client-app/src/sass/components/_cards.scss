@@ -1,7 +1,9 @@
+@import '../abstracts/mixins';
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 100%;
-  column-gap: 4rem;
-  width: 100%;
+  grid-auto-rows: auto;
+  gap: 4rem;
+  //@include flex(row, center, center, nowrap);
 }

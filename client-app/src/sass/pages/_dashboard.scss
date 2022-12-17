@@ -1,6 +1,5 @@
 .dashboard {
-  grid-column-start: col2;
-  grid-column-end: col3;
-  grid-row-start: row2;
-  grid-row-end: row3;
+  display: grid;
+  grid-template-columns: [col1] 10% [col2] 1fr [col3] 10% [end];
+  grid-template-rows: [row1] 15% [row2] 1fr [row3] 350px [end];
 }

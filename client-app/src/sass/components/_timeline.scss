@@ -1,4 +1,6 @@
 .timeline {
-  width: 100%;
-  height: 100%;
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row2;
+  grid-row-end: row3;
 }
