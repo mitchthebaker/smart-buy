@@ -3,8 +3,6 @@
 .card-wrapper {
   @include flex(column, center, center, nowrap);
 
-  // may need to make .card grid, so i can be specific 
-  // with img, ticker/interval/date/etc., alerts
   & .card {
     width: 100%;
     @include flex(column, center, center, nowrap);
@@ -20,40 +18,47 @@
       display: grid;
       grid-template-columns: [col1] 50% [col2] 50% [end];
       grid-template-rows: [row1] auto [row2] auto [row3] auto [end];
+      width: 90%;
 
       & .ticker {
-        grid-column-start: col1;
-        grid-column-end: col2;
-        grid-row-start: row1;
-        grid-row-end: row2;
+        @include grid-column(col1, col2);
+        @include grid-row(row1, row2);
+        text-align: left;
       }
 
       & .date {
-        grid-column-start: col2;
-        grid-column-end: end;
-        grid-row-start: row1;
-        grid-row-end: row2;
+        @include grid-column(col2, end);
+        @include grid-row(row1, row2);
+        text-align: right;
       }
 
       & .interval {
-        grid-column-start: col1;
-        grid-column-end: col2;
-        grid-row-start: row2;
-        grid-row-end: row3;
+        @include grid-column(col1, col2);
+        @include grid-row(row2, row3);
+        text-align: left;
       }
 
       & .start-time {
-        grid-column-start: col2;
-        grid-column-end: end;
-        grid-row-start: row2;
-        grid-row-end: row3;
+        @include grid-column(col2, end);
+        @include grid-row(row2, row3);
+        text-align: right;
       }
 
       & .start-values {
-        grid-column-start: col1;
-        grid-column-end: col2;
-        grid-row-start: row3;
-        grid-row-end: end;
+        @include grid-column(col1, col2);
+        @include grid-row(row3, end);
+      }
+
+      & .bsp {
+        @include grid-column(col2, end);
+        @include grid-row(row3, end);
+        text-align: right;
+
+        span {
+          padding: 0.3rem;
+          border: 1px solid gold;
+          border-radius: 3px;
+        }
       }
     }
   }

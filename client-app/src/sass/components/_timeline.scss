@@ -1,6 +1,6 @@
+@import '../abstracts/mixins';
+
 .timeline {
-  grid-column-start: col2;
-  grid-column-end: col3;
-  grid-row-start: row2;
-  grid-row-end: row3;
+  @include grid-column(col2, col3);
+  @include grid-row(row2, row3);
 }

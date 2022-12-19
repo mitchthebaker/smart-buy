@@ -1,21 +1,13 @@
-import '../../../sass/components/_card.scss';
-import Spinner from 'react-spinkit';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import logo from './logo.png';
-/**
- * {
-                ticker: metadata.ticker,
-                interval: metadata.interval,
-                date: metadata.date, 
-                start_time: metadata.start_time,
-                start_price: metadata.start_price,
-                end_price: metadata.end_price,
-                bsp: metadata.bsp,
-                alerts: alerts
-              }
- * 
- */
+
+// sass 
+import '../../../sass/components/_card.scss';
+
+// components 
+import Spinner from 'react-spinkit';
+import Alerts from './Alerts';
 
 const Card = ({ metadata }) => {
   const [loaded, setLoaded] = useState(false);
@@ -42,17 +34,12 @@ const Card = ({ metadata }) => {
               <p> Timeline start value of {metadata.ticker}: {metadata.start_price} </p>
               <p> Timeline start value of {metadata.ticker}: {metadata.end_price} </p>
             </div>
+            <p className='bsp'> <span> {metadata.bsp}BSP </span> </p>
           </div>
-          {metadata.alerts ? (
-            metadata.alerts.map(({ alert_id, ema13, ema63 }) => (
-              <div key={alert_id}>
-                <span> {ema13} </span>
-                <span> {ema63} </span>
-              </div>
-            ))
-          ) : (
-            <span> No alerts yet </span>
-          )}
+          <Alerts 
+            ticker={metadata.ticker}
+            alerts={metadata.alerts}
+          />
         </div>
       )}
     </section>

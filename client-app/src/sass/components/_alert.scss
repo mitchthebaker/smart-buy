@@ -1,0 +1,19 @@
+.alert {
+  display: grid; 
+  grid-template-columns: [start] 60% [middle] 40% [end];
+  grid-auto-rows: auto;
+  background: #363736;
+  width: 100%;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+
+  & .content {
+    display: grid;
+    grid-template-columns: [start] 50% [middle] 50% [end];
+    grid-template-rows: [start] auto [row2] auto [row3] auto [end];
+  }
+
+  & .stoplight {
+
+  }
+}
