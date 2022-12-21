@@ -9,7 +9,7 @@ const Alerts = ({ ticker, alerts }) => {
       {alerts ? (
         alerts.map((alert) => (
           <Alert 
-            key={alert.id}
+            key={alert.alert_id}
             ticker={ticker}
             alert={alert}
           />

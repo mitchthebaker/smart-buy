@@ -1,0 +1,26 @@
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.p {
+  @include font-size($p-font-sizes);
+  font-weight: 300;
+  color: $default-typography-color;
+}
+
+.h4 {
+  @include font-size($h4-font-sizes);
+  font-weight: 300;
+  color: $default-typography-color;
+}
+
+.h5 {
+  @include font-size($h5-font-sizes);
+  font-weight: 300;
+  color: $default-typography-color;
+}
+
+.h6 {
+  @include font-size($h6-font-sizes);
+  font-weight: 300;
+  color: $default-typography-color;
+}

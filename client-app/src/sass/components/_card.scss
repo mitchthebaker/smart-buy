@@ -1,4 +1,5 @@
 @import '../abstracts/mixins';
+@import '../base/typography';
 
 .card-wrapper {
   @include flex(column, center, center, nowrap);
@@ -12,6 +13,7 @@
       width: 7rem;
       height: auto;
       object-fit: contain;
+      margin: 2rem 1rem 1rem 1rem;
     }
 
     & .description {
@@ -24,40 +26,50 @@
         @include grid-column(col1, col2);
         @include grid-row(row1, row2);
         text-align: left;
+        margin: 0.5rem 0 0.5rem 0;
       }
 
       & .date {
         @include grid-column(col2, end);
         @include grid-row(row1, row2);
         text-align: right;
+        margin: 0.5rem 0 0.5rem 0;
       }
 
       & .interval {
         @include grid-column(col1, col2);
         @include grid-row(row2, row3);
         text-align: left;
+        margin: 0.5rem 0 0.5rem 0;
       }
 
       & .start-time {
         @include grid-column(col2, end);
         @include grid-row(row2, row3);
         text-align: right;
+        margin: 0.5rem 0 0.5rem 0;
       }
 
-      & .start-values {
-        @include grid-column(col1, col2);
+      & .row-3 {
+        @include grid-column(col1, end);
         @include grid-row(row3, end);
-      }
+        @include flex(row, flex-start, center, nowrap);
 
-      & .bsp {
-        @include grid-column(col2, end);
-        @include grid-row(row3, end);
-        text-align: right;
+        & .start-values {
+          @include flex(column, center, center, nowrap);
+        }
 
-        span {
-          padding: 0.3rem;
-          border: 1px solid gold;
-          border-radius: 3px;
+        & .bsp {
+          @include grid-column(col2, end);
+          @include grid-row(row3, end);
+          text-align: right;
+          margin-left: auto;
+  
+          p {
+            padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+            border: 1px solid gold;
+            border-radius: 3px;
+          }
         }
       }
     }
