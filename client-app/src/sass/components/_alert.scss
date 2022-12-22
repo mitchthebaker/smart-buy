@@ -3,57 +3,26 @@
 .alert {
   display: grid; 
   grid-template-columns: [start] 60% [col1] 5% [col2] 35% [end];
-  grid-auto-rows: auto;
+  grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
   width: 100%;
-  margin-bottom: 2rem;
+}
 
-  & .content {
-    display: grid;
-    grid-template-columns: [start] 50% [middle] 50% [end];
-    grid-template-rows: [start] auto [row2] auto [row3] auto [end];
-    @include grid-column(start, col1);
-    background: #363736;
-    border-radius: 2px;
+.cross-separator-wrapper {
+  @include flex(column, center, center, nowrap);
+  @include grid-column(start, col1);
+  width: 100%;
+  height: 3rem;
+  
+  & .cross-separator {
+    width: 75%;
+    height: 1px;
+    background: #3cd33c;
   }
+}
 
-  & .stoplight-wrapper {
-    @include flex(row, flex-start, center, nowrap);
-    @include grid-column(col2, end);
-
-    & .stoplight {
-      @include flex(column, center, center, wrap);
-      width: 40px;
-      height: 100px;
-      border-radius: 25px;
-      background: #363736;
-
-      & .green--light {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        margin: 0.1rem;
-        background: #3cd33c;
-      }
-
-      & .yellow--light {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        margin: 0.1rem;
-        background: #f1f73d;
-      }
-
-      & .red--light {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        margin: 0.1rem;
-        background: #cc2828;
-      }
-    }
-
-    & .stoplight-text {
-      margin-left: auto;
-    }
-  }
+.alert-separator-wrapper {
+  @include flex(column, center, center, nowrap);
+  @include grid-column(start, col1);
+  width: 100%;
+  height: 2rem;
 }

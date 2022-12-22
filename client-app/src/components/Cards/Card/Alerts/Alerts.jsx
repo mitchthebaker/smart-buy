@@ -7,9 +7,10 @@ const Alerts = ({ ticker, alerts }) => {
   return (
     <section className='alerts'>
       {alerts ? (
-        alerts.map((alert) => (
+        alerts.map((alert, idx) => (
           <Alert 
             key={alert.alert_id}
+            idx={idx}
             ticker={ticker}
             alert={alert}
           />

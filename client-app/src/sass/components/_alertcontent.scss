@@ -1,0 +1,38 @@
+@import '../abstracts/mixins';
+
+.alert-content {
+  display: grid;
+  grid-template-columns: [start] 55% [middle] 45% [end];
+  grid-template-rows: [start] auto [row2] auto [row3] auto [end];
+  @include grid-column(start, col1);
+  background: #363736;
+  border-radius: 2px;
+
+  & .ticker-info {
+    @include grid-column(start, middle);
+    @include grid-row(start, row2);
+    text-align: left;
+    margin: 0.5rem 1rem;
+  }
+
+  & .current-time {
+    @include grid-column(middle, end);
+    @include grid-row(start, row2);
+    text-align: right;
+    margin: 0.5rem 1rem;
+  }
+
+  & .ema13 {
+    @include grid-column(start, middle);
+    @include grid-row(row2, row3);
+    text-align: left;
+    margin: 0.5rem 1rem;
+  }
+
+  & .ema63 {
+    @include grid-column(middle, end);
+    @include grid-row(row2, row3);
+    text-align: left;
+    margin: 0.5rem 1rem;
+  }
+}
