@@ -79,6 +79,6 @@ https://docs.docker.com/compose/install/
 
 start the app with `docker-compose up` 
 
-react - http://localhost:3000
-nodejs - http://localhost:3001
-psql - http://localhost:3201
+- react  http://localhost:3000
+- nodejs http://localhost:3001
+- psql   http://localhost:3201
