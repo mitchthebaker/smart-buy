@@ -1,4 +1,4 @@
-# Node-boilerplate 
+# Smart-buy 
 
 Welcome! This repository is set up with react client, Node.js REST API, and PostgreSQL database. 
 
