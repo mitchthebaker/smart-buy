@@ -2,7 +2,7 @@
 
 .stoplight-wrapper {
   @include flex(row, flex-start, center, nowrap);
-  @include grid-column(col2, end);
+  @include grid-column(col3, col4);
 
   & .stoplight {
     @include flex(column, center, center, wrap);

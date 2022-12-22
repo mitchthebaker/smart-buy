@@ -1,4 +1,5 @@
 import '../../../../../sass/components/_stoplight.scss';
+import '../../../../../sass/base/_typography.scss';
 
 const Stoplight = ({ alert }) => {
   return (
@@ -10,9 +11,9 @@ const Stoplight = ({ alert }) => {
       </div>
       <div className='stoplight-text'>
         {(alert.cross_time !== null) ? (
-          <p> New <b> TREND ACTIVATED </b> </p>
+          <h5 className='h5'> { alert.stoplight_message } </h5>
         ) : (
-          <p></p>
+          <h5 className='h5'> { alert.stoplight_message } </h5>
         )}
       </div>
     </div>

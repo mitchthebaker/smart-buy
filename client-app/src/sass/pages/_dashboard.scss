@@ -1,12 +1,12 @@
 .dashboard {
   display: grid;
-  grid-template-columns: [start] 0px [col2] 1fr [col3] 0px [end];
-  grid-template-rows: [start] 100px [row2] 1fr [row3] 350px [end];
+  grid-template-columns: [col1] 0px [col2] 1fr [col3] 0px [col4];
+  grid-template-rows: [row1] 100px [row2] 1fr [row3] 350px [row4];
   column-gap: 15px;
 
   @media screen and (min-width: 1024px) {
-    grid-template-columns: [start] 150px [col2] 1fr [col3] 150px [end];
-    grid-template-rows: [start] 100px [row2] 1fr [row3] 350px [end];
+    grid-template-columns: [col1] 150px [col2] 1fr [col3] 150px [col4];
+    grid-template-rows: [row1] 100px [row2] 1fr [row3] 350px [row4];
     column-gap: 0px;
   }
 }

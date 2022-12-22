@@ -19,8 +19,8 @@
 
     & .description {
       display: grid;
-      grid-template-columns: [col1] 50% [col2] 50% [end];
-      grid-template-rows: [row1] auto [row2] auto [row3] auto [end];
+      grid-template-columns: [col1] 50% [col2] 50% [col3];
+      grid-template-rows: [row1] auto [row2] auto [row3] auto [row4];
       width: 90%;
 
       & .ticker {
@@ -31,7 +31,7 @@
       }
 
       & .date {
-        @include grid-column(col2, end);
+        @include grid-column(col2, col3);
         @include grid-row(row1, row2);
         text-align: right;
         margin: 0.5rem 0 0.5rem 0;
@@ -45,15 +45,15 @@
       }
 
       & .start-time {
-        @include grid-column(col2, end);
+        @include grid-column(col2, col3);
         @include grid-row(row2, row3);
         text-align: right;
         margin: 0.5rem 0 0.5rem 0;
       }
 
       & .row-3 {
-        @include grid-column(col1, end);
-        @include grid-row(row3, end);
+        @include grid-column(col1, col3);
+        @include grid-row(row3, row4);
         @include flex(row, flex-start, center, nowrap);
 
         & .start-values {
@@ -65,8 +65,8 @@
         }
 
         & .bsp {
-          @include grid-column(col2, end);
-          @include grid-row(row3, end);
+          @include grid-column(col2, col3);
+          @include grid-row(row3, row4);
           text-align: right;
           margin-left: auto;
   

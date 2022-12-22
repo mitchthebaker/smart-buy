@@ -2,45 +2,75 @@
 
 .alert-content {
   display: grid;
-  grid-template-columns: [start] 70% [middle] 30% [end];
-  grid-template-rows: [start] auto [row2] auto [row3] auto [end];
-  @include grid-column(start, col1);
+  grid-template-columns: [col1] 70% [col2] 30% [col3];
+  grid-template-rows: [row1] auto [row2] auto [row3] auto [row4] auto [row5];
+  @include grid-column(col1, col2);
   background: #363736;
   border-radius: 2px;
 
-  & .ticker-info {
-    @include grid-column(start, middle);
-    @include grid-row(start, row2);
-    text-align: left;
-    margin: 0.8rem 1rem;
+  & .row1-col1 {
+    @include grid-column(col1, col2);
+    @include grid-row(row1, row2);
+    
+    h4 {
+      text-align: left;
+      margin: 0.8rem 1rem;
+    }
+  }
+
+  & .row2-col1 {
+    @include grid-column(col1, col2);
+    @include grid-row(row2, row3);
+
+    & .trend {
+      text-align: left;
+      margin: 0.5rem 1rem;
+    }
+
+    & .time-of-cross {
+      text-align: left;
+      margin: 0.5rem 1rem;
+    }
+
+    & .ema {
+      @include flex(row, flex-start, center, nowrap);
+      margin: 0.5rem 1rem;
+  
+      h5 {
+        margin: 0;
+      }
+  
+      h5:nth-child(2) {
+        padding-left: 2rem;
+      }
+    }
   }
 
   & .current-time {
-    @include grid-column(middle, end);
-    @include grid-row(start, row2);
+    @include grid-column(col2, col3);
+    @include grid-row(row1, row2);
     text-align: right;
     margin: 0.8rem 1rem;
   }
 
-  & .ema {
-    @include grid-column(start, middle);
-    @include grid-row(row2, row3);
-    @include flex(row, flex-start, center, nowrap);
-    margin: 0.5rem 1rem;
-
-    h5 {
-      margin: 0;
-    }
-
-    h5:nth-child(2) {
-      padding-left: 2rem;
-    }
-  }
-
   & .current-price {
-    @include grid-column(middle, end);
+    @include grid-column(col2, col3);
     @include grid-row(row2, row3);
     text-align: center;
     margin: 0rem 0.5rem;
+  }
+
+  & .rate-of-change {
+    @include grid-column(col1, col2);
+    @include grid-row(row3, row4);
+    text-align: left;
+    margin: 0.8rem 1rem;
+  }
+
+  & .estimated-cross {
+    @include grid-column(col1, col2);
+    @include grid-row(row4, row5);
+    text-align: left;
+    margin: 0.8rem 1rem;
   }
 }
