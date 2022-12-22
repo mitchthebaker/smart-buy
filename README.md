@@ -4,13 +4,11 @@ Welcome! This repository is set up with react client, Node.js REST API, and Post
 
 ## Setup
 
-### Clone the project locally 
+### Clone the project  
 
-`git clone git@github.com:mitchthebaker/node-boilerplate.git`
+### cd into ./api-gateway and create .env file 
 
-### Next, cd into ./api-gateway and create a .env file 
-
-Inside .env, add the following variables:
+Inside .env, add:
 
 ```
   NODE_ENV=development
@@ -22,9 +20,9 @@ Inside .env, add the following variables:
   PG_PASSWORD=secret
   PG_PORT=5432
 ```
-### Next, cd into ./client-app and create a .env file 
+### cd into ./client-app and create .env file 
 
-Inside .env, add the following variables: 
+Inside .env, add:
 
 ```
   NODE_ENV=development
@@ -45,13 +43,15 @@ Inside .env, add the following variables:
       - "3201:80"
 ```
 
-### Next, add a new server in pgadmin so we can perform queries against the database. 
+### Next, add a new server in pgadmin to perform queries against the database. 
 
-Open up pgadmin by typing http://localhost:3201 in your browser. 
+Open up pgadmin at http://localhost:3201
 
-Login with the credentials you set for PGADMIN_DEFAULT_EMAIL/PGADMIN_DEFAULT_PASSWORD. 
+Login with the credentials 
+- PGADMIN_DEFAULT_EMAIL
+- PGADMIN_DEFAULT_PASSWORD
 
-Next, click on `Add New Server`:
+Next, click on `Add New Server`
 
 [Image for Add New Server](https://imgur.com/CFD67lu)
 
@@ -59,7 +59,7 @@ In the modal that pops up, enter a name under the General tab.
 
 [Image for Name in General Tab](https://imgur.com/kqWAy8r)
 
-Click on the `Connection` tab.
+Click on the `Connection` tab
 
 For `Hostname/address`, set this to `server_db` which is the container_name for server-db in docker-compose.yml. 
 
