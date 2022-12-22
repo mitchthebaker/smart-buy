@@ -8,7 +8,7 @@
   background: #363736;
   border-radius: 2px;
 
-  & .row1-col1 {
+  & .row1--col1 {
     @include grid-column(col1, col2);
     @include grid-row(row1, row2);
     
@@ -18,7 +18,7 @@
     }
   }
 
-  & .row2-col1 {
+  & .row2--col1 {
     @include grid-column(col1, col2);
     @include grid-row(row2, row3);
 
@@ -46,31 +46,48 @@
     }
   }
 
-  & .current-time {
+  & .row1-2--col2 {
     @include grid-column(col2, col3);
-    @include grid-row(row1, row2);
-    text-align: right;
-    margin: 0.8rem 1rem;
+    @include grid-row(row1, row3);
+
+    & .current-time {
+      text-align: center;
+      margin: 0.8rem 1rem;
+    }
+  
+    & .current-price {
+      text-align: center;
+      margin: 0rem 1rem;
+    }
   }
 
-  & .current-price {
-    @include grid-column(col2, col3);
-    @include grid-row(row2, row3);
-    text-align: center;
-    margin: 0rem 0.5rem;
-  }
-
-  & .rate-of-change {
+  & .row3--col1 {
     @include grid-column(col1, col2);
     @include grid-row(row3, row4);
-    text-align: left;
-    margin: 0.8rem 1rem;
+
+    & .rate-of-change {
+      text-align: left;
+      margin: 0.8rem 1rem;
+    }
+
+    & .current-price {
+      text-align: left;
+      margin: 0.8rem 1rem;
+    }
   }
 
-  & .estimated-cross {
+  & .row4--col1 {
     @include grid-column(col1, col2);
     @include grid-row(row4, row5);
-    text-align: left;
-    margin: 0.8rem 1rem;
+
+    & .estimated-cross {
+      text-align: left;
+      margin: 0.8rem 1rem;
+    }
+
+    & .ema-difference {
+      text-align: left;
+      margin: 0.8rem 1rem;
+    }
   }
 }
