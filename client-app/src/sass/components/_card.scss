@@ -8,12 +8,13 @@
     width: 100%;
     @include flex(column, center, center, nowrap);
     border: 2px solid #000000;
+    //padding: 2rem;
 
     & .logo {
-      width: 7rem;
+      width: 9rem;
       height: auto;
       object-fit: contain;
-      margin: 2rem 1rem 1rem 1rem;
+      margin: 1rem;
     }
 
     & .description {

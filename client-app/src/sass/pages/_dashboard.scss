@@ -1,9 +1,12 @@
 .dashboard {
   display: grid;
-  grid-template-columns: [col1] 5% [col2] 1fr [col3] 5% [end];
-  grid-template-rows: [row1] 15% [row2] 1fr [row3] 350px [end];
+  grid-template-columns: [start] 0px [col2] 1fr [col3] 0px [end];
+  grid-template-rows: [start] 100px [row2] 1fr [row3] 350px [end];
+  column-gap: 15px;
 
-  @media screen and (min-width: 480px) {
-    grid-template-columns: [col1] 10% [col2] 1fr [col3] 10% [end];
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: [start] 150px [col2] 1fr [col3] 150px [end];
+    grid-template-rows: [start] 100px [row2] 1fr [row3] 350px [end];
+    column-gap: 0px;
   }
 }

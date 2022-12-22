@@ -43,6 +43,7 @@ const Card = ({ metadata }) => {
           </div>
           <Alerts 
             ticker={metadata.ticker}
+            interval={metadata.interval}
             alerts={metadata.alerts}
           />
         </div>

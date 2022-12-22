@@ -2,7 +2,7 @@
 
 .alert {
   display: grid; 
-  grid-template-columns: [start] 60% [col1] 5% [col2] 35% [end];
+  grid-template-columns: [start] 65% [col1] 5% [col2] 30% [end];
   grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
   width: 100%;
 }

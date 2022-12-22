@@ -3,7 +3,7 @@ import Alert from './Alert';
 // sass 
 import '../../../../sass/components/_alerts.scss';
 
-const Alerts = ({ ticker, alerts }) => {
+const Alerts = ({ ticker, interval, alerts }) => {
   return (
     <section className='alerts'>
       {alerts ? (
@@ -12,6 +12,7 @@ const Alerts = ({ ticker, alerts }) => {
             key={alert.alert_id}
             idx={idx}
             ticker={ticker}
+            interval={interval}
             alert={alert}
           />
         ))

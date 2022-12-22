@@ -5,7 +5,7 @@ import '../../../../../sass/base/_typography.scss';
 import AlertContent from './AlertContent';
 import Stoplight from '../Stoplight';
 
-const Alert = ({ idx, ticker, alert }) => {
+const Alert = ({ idx, ticker, interval, alert }) => {
   console.log(alert);
   return (
     <section className='alert'>
@@ -21,7 +21,7 @@ const Alert = ({ idx, ticker, alert }) => {
         </>
       )}
       
-      <AlertContent ticker={ticker} alert={alert} />
+      <AlertContent ticker={ticker} interval={interval} alert={alert} />
       <Stoplight alert={alert} />
     </section>
   );
