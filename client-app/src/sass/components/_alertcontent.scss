@@ -5,7 +5,6 @@
   grid-template-columns: [col1] 70% [col2] 30% [col3];
   grid-template-rows: [row1] auto [row2] auto [row3] auto [row4] auto [row5];
   @include grid-column(col1, col2);
-  background: #363736;
   border-radius: 2px;
 
   & .row1--col1 {
@@ -90,4 +89,20 @@
       margin: 0.8rem 1rem;
     }
   }
+}
+
+.default--color {
+  background: #363736;
+}
+
+.green--color {
+  background: #3C905B;
+}
+
+.yellow--color {
+  background: #9D9F31;
+}
+
+.red--color {
+  background: #9F4C31;
 }

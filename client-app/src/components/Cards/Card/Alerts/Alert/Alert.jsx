@@ -3,7 +3,7 @@ import '../../../../../sass/base/_typography.scss';
 
 // components
 import AlertContent from './AlertContent';
-import Stoplight from '../Stoplight';
+import StoplightWrapper from './StoplightWrapper';
 
 const Alert = ({ idx, ticker, interval, alert }) => {
   console.log(alert);
@@ -22,7 +22,7 @@ const Alert = ({ idx, ticker, interval, alert }) => {
       )}
       
       <AlertContent ticker={ticker} interval={interval} alert={alert} />
-      <Stoplight alert={alert} />
+      <StoplightWrapper alert={alert} />
     </section>
   );
 };
