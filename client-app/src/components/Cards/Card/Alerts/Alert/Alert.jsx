@@ -9,6 +9,7 @@ const Alert = ({ idx, ticker, interval, alert }) => {
   console.log(alert);
   return (
     <section className='alert'>
+      {/* make separator into its own component, simplify class names */}
       {(alert.cross_time !== null) ? (
         <div className='cross-separator-wrapper'>
           <div className='cross-separator'> </div>
