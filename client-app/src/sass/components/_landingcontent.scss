@@ -1,0 +1,66 @@
+@import '../abstracts/mixins';
+
+.landing__content {
+  @include flex(column, flex-start, center, nowrap);
+  @include grid-column(col2, col3);
+  @include grid-row(row2, row3);
+  width: 100%;
+
+  & .logo {
+    width: 9rem;
+    height: auto;
+    object-fit: contain;
+  }
+
+  & .date {
+    @include flex(column, center, center, nowrap);
+    margin: 2rem;
+
+    h4 {
+      margin: 0.5rem 1rem;
+    }
+  }
+
+  & .crosses {
+    display: grid;
+    grid-template-columns: [col1] auto [col2];
+    grid-template-rows: [row1] auto [row2] auto [row3] auto [row4];
+    row-gap: 50px;
+
+    & .cross {
+      @include flex(column, center, center, nowrap);
+      min-width: 350px;
+      height: 175px;
+      border-radius: 5px;
+
+      @media screen and (min-width: 1024px) {
+        min-width: 500px;
+        height: 275px;
+      }
+
+      h4 {
+        margin: 0.5rem 1rem;
+      }
+    }
+
+    & .active--cross {
+      background: #3C905B;
+    }
+
+    & .potential--cross {
+      background: #9D9F31;
+    }
+
+    & .completed--cross {
+      background: #323633;
+    }
+  }
+
+  & .yesterday__cross {
+    margin: 4rem;
+
+    a {
+      cursor: pointer;
+    }
+  }
+}

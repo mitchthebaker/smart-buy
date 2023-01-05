@@ -1,14 +1,13 @@
 // components
-import CreateEmaForm from '../../components/CreateEmaForm';
-import StartInterval from '../../components/StartInterval';
-import StopInterval from '../../components/StopInterval';
+import LandingContent from '../../components/LandingContent';
+
+// sass 
+import '../../sass/pages/_landing.scss';
 
 const Landing = () => {
   return (
-    <section>
-      <CreateEmaForm />
-      <StartInterval />
-      <StopInterval />
+    <section className='landing'>
+      <LandingContent />
     </section>
   );
 };

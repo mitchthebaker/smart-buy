@@ -1,3 +1,4 @@
+// components 
 import Timeline from '../../components/Timeline';
 
 // sass 
