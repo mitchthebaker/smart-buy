@@ -4,17 +4,15 @@ alerts:
 name: smart-buy
 region: nyc
 services:
-- build_command: npm run build
-  environment_slug: node-js
+- dockerfile_path: Dockerfile
   github:
     branch: main
     deploy_on_push: true
     repo: mitchthebaker/smart-buy
-  http_port: 8080
+  http_port: 3000
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: smart-buy-client-app2
+  name: smart-buy-client-app
   routes:
-  - path: /smart-buy-client-app2
-  run_command: npm start
+  - path: /
   source_dir: client-app
